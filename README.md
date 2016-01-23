@@ -6,15 +6,19 @@
 
 ### send
 
-    sock.send(new osc.OSCMessage('/osc/message/ ,is 100 TextValue'), 10000);
+```javascript
+sock.send(new osc.OSCMessage('/osc/message/ ,is 100 TextValue'), 10000);
+```
 
 ### listen
 
-    let socket = new osc.OSCSocket();
-    socket.bind({ "port" : 10000 });
-    socket.on("/osc/message/", (message) => {
-    
-    });
+```javascript
+let socket = new osc.OSCSocket();
+socket.bind({ "port" : 10000 });
+socket.on("/osc/message/", (message) => {
+
+});
+```
 
 
 実行するコマンドは、
