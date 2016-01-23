@@ -20,16 +20,28 @@ app.on('window-all-closed', function() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on('ready', function() {
+  var Screen = require('screen');
+  var size = Screen.getPrimaryDisplay().size; // ディスプレイのサイズを取得する
+
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 800,
-    transparent: true,
-    frame: false
+    left: 0,
+    top: 0,
+    width: size.width,   // 最大サイズで表示する
+    height: size.height, // 最大サイズで表示する
+    transparent: true,    // 背景を透明に
+    show: true,
+    frame: false,
+    resizable: false,
+    'always-on-top': true // 一番手前に表示する
   });
 
+  // 透明な部分のマウスのクリックを検知させない、と思いきや透明じゃないところもクリッククスルーしちゃう
+  //mainWindow.setIgnoreMouseEvents(true);
+  mainWindow.maximize();
+
   // and load the index.html of the app.
-  mainWindow.loadUrl('file://' + __dirname + '/index.html');
+  mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   // Open the DevTools.
   mainWindow.openDevTools();
