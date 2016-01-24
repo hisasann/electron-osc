@@ -31,13 +31,11 @@ app.on('ready', function() {
     height: size.height, // 最大サイズで表示する
     transparent: true,    // 背景を透明に
     show: true,
-    frame: false,
-    resizable: false,
-    'always-on-top': true // 一番手前に表示する
+    //frame: false,
+    //resizable: false,
+    //'always-on-top': true // 一番手前に表示する
   });
 
-  // 透明な部分のマウスのクリックを検知させない、と思いきや透明じゃないところもクリッククスルーしちゃう
-  //mainWindow.setIgnoreMouseEvents(true);
   mainWindow.maximize();
 
   // and load the index.html of the app.
