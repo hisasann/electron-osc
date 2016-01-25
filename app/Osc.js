@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 const sock = new osc.OSCSocket();
-sock.setBroadcast(true);
-sock.bind();
+//sock.setBroadcast(true);
+//sock.bind();
 //sock.bind({
 //  port: 6666,
 //  address: '127.0.0.1'
@@ -22,7 +22,7 @@ class OscSender extends Component {
     msg.address = '/osc/from/electron';
     msg.addArgument('i', 100);
     msg.addArgument('s', 'String value.');
-    sock.send(msg, 6666);
+    sock.send(msg, 6666, '127.0.0.1');
 
     //sock.send(new osc.OSCMessage('/osc/from/electron ,is 100 TextValue'), 6666);
   }
